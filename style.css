@@ -1,0 +1,614 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+    color: #fff;
+    background: #06314a; /* توحيد اللون الأزرق */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* تحسين التمرير */
+    position: relative; /* لجعل الخلفية تتحرك فوق الموقع */
+    overflow: auto; /* إعادة تمكين التمرير */
+    overflow-x: hidden; /* منع التمرير الأفقي */
+    height: 100vh; /* جعل الصفحة تأخذ كامل ارتفاع الشاشة */
+    overflow-y: auto; /* إلغاء خاصية التمرير العمودي الإجباري */
+    scroll-snap-type: none; /* إلغاء خاصية التمرير السلس */
+}
+
+.navbar {
+    background: linear-gradient(135deg, #06314a, #084c61); /* خلفية متدرجة */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+    padding: 10px 20px; /* تقليل الحشوة */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التمرير */
+}
+
+.navbar.scrolled {
+    background: rgba(6, 49, 74, 0.9); /* خلفية شبه شفافة عند التمرير */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* زيادة الظل */
+}
+
+.navbar-brand {
+    color: #f58d1f; /* لون النص */
+    font-weight: bold;
+    font-size: 1.8rem; /* تكبير النص */
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #fff; /* تغيير اللون عند التحويم */
+}
+
+.navbar-brand img {
+    height: 80px; /* تكبير حجم اللوجو */
+    margin-right: 10px;
+    filter: drop-shadow(0 0 15px white); /* إضافة التوهج */
+}
+
+.navbar-nav .nav-link {
+    color: white; /* جعل الكلمات باللون الأبيض */
+    font-weight: bold;
+    font-size: 1.2rem; /* تكبير النص */
+    margin: 0 10px; /* مسافة بين الروابط */
+    transition: color 0.3s ease, transform 0.3s ease; /* تأثير عند التحويم */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f58d1f; /* تغيير اللون عند التمرير */
+    transform: scale(1.1); /* تكبير الرابط عند التحويم */
+}
+
+.nav-link.active {
+    background-color: #f58d1f; /* خلفية برتقالية */
+    color: #fff !important; /* النص باللون الأبيض */
+    border-radius: 5px; /* زوايا مستديرة */
+    padding: 5px 10px; /* مسافة داخلية */
+    transition: all 0.3s ease; /* تأثير الانتقال */
+}
+
+.nav-btn {
+    background-color: #f58d1f; /* لون برتقالي */
+    color: #fff; /* النص باللون الأبيض */
+    font-size: 1.2rem; /* حجم النص */
+    padding: 10px 20px; /* مسافة داخلية */
+    border-radius: 5px; /* زوايا مستديرة */
+    transition: background 0.3s ease, transform 0.3s ease; /* تأثير عند التحويم */
+}
+
+.nav-btn:hover {
+    background-color: #d9771f; /* لون برتقالي داكن */
+    transform: scale(1.1); /* تكبير الزر عند التحويم */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التحويم */
+}
+
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(6, 49, 74, 0.8), rgba(6, 49, 74, 0.8)), 
+                url('hero-image.jpg') no-repeat center center/cover; /* خلفية متدرجة مع صورة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover; /* التأكد من أن الخلفية لا تتجاوز عرض الشاشة */
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: #f58d1f; /* تحديث اللون */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.hero-section img {
+    height: 100vh; /* تكبير اللوجو ليملأ الارتفاع بالكامل */
+    max-width: 100%; /* التأكد من أن العرض لا يتجاوز الشاشة */
+    object-fit: contain; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 30px white); /* إضافة التوهج */
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #084c61; /* توحيد اللون الأزرق */
+    border-radius: 10px; /* زوايا مستديرة */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px #ffbb0080;
+    background-color: #06314a; /* توحيد اللون الأزرق عند التحويم */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #f58d1f; /* تحديث اللون */
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.btn-warning {
+    background-color: #f58d1f; /* لون الزر */
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #e67c1a; /* لون الزر عند التحويم */
+    transform: scale(1.05); /* تكبير الزر عند التحويم */
+}
+
+footer {
+    background: #06314a; /* توحيد اللون الأزرق */
+    padding: 40px 20px; /* مسافة داخلية */
+    text-align: center; /* توسيط النصوص */
+    border-top: 2px solid #f58d1f; /* إضافة خط علوي */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem; /* حجم النص */
+    color: #ddd;
+}
+
+footer a {
+    color: #f58d1f; /* تحديث اللون */
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2rem; /* حجم النص */
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+#highlight-text {
+    font-size: 3rem; /* حجم النص */
+    font-weight: bold;
+    color: #f58d1f;
+    opacity: 0; /* إخفاء النص في البداية */
+    transform: translateY(-50px); /* تحريك النص للأعلى */
+    animation: slideDown 1.5s ease-out forwards; /* تأثير الحركة */
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1; /* إظهار النص */
+        transform: translateY(0); /* إرجاع النص إلى مكانه الطبيعي */
+    }
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 30px; /* تقليل حجم اللوجو */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem; /* تقليل حجم النص */
+    }
+
+    .hero-section p {
+        font-size: 1.2rem; /* تقليل حجم النص */
+    }
+
+    .card {
+        margin-bottom: 20px; /* إضافة مسافة بين البطاقات */
+    }
+
+    .btn-warning {
+        width: 100%; /* جعل الأزرار بعرض الشاشة */
+        margin-top: 10px; /* إضافة مسافة أعلى الزر */
+    }
+
+    footer {
+        text-align: center; /* توسيط النصوص في الفوتر */
+    }
+
+    footer a {
+        display: block; /* جعل الروابط في الفوتر تظهر في أسطر منفصلة */
+        margin: 5px 0; /* إضافة مسافة بين الروابط */
+    }
+}
+
+#partners img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير الانتقال */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+}
+
+#partners img:hover {
+    transform: scale(1.1); /* تكبير الصورة عند التحويم */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* إضافة ظل */
+}
+
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* خلف المحتوى */
+    overflow: hidden;
+    background: #06314a; /* توحيد اللون الأزرق */
+}
+
+.shape {
+    position: absolute;
+    width: 50px; /* تصغير حجم المربعات */
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1); /* لون شبه شفاف */
+    border-radius: 5px; /* جعل الأشكال مربعات */
+    animation: rotateShapes 10s infinite linear; /* حركة دوران بسرعة متوسطة */
+}
+
+.shape:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    top: 30%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.shape:nth-child(3) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+.shape:nth-child(4) {
+    top: 50%;
+    left: 10%;
+    animation-delay: 6s;
+}
+
+.shape:nth-child(5) {
+    top: 80%;
+    left: 40%;
+    animation-delay: 8s;
+}
+
+.shape:nth-child(6) {
+    top: 20%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.shape:nth-child(7) {
+    top: 40%;
+    left: 30%;
+    animation-delay: 6s;
+}
+
+.shape:nth-child(8) {
+    top: 60%;
+    left: 90%;
+    animation-delay: 9s;
+}
+
+.shape:nth-child(9) {
+    top: 75%;
+    left: 15%;
+    animation-delay: 12s;
+}
+
+.shape:nth-child(10) {
+    top: 85%;
+    left: 60%;
+    animation-delay: 15s;
+}
+
+@keyframes moveShapes {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes rotateShapes {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('BDL.png'); /* استخدام الصورة */
+    background-size: contain; /* التأكد من أن الخلفية لا تتجاوز عرض الشاشة */
+    background-repeat: repeat; /* تكرار الصورة */
+    z-index: -1; /* خلف المحتوى */
+    animation: rotateBackground 20s linear infinite; /* جعل الخلفية تدور */
+    filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(90%); /* تغيير اللون إلى #767676 */
+    background-color: #06314a; /* توحيد اللون الأزرق */
+}
+
+@keyframes rotateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.product-btn {
+    background-color: #06314a; /* توحيد اللون الأزرق */
+    color: #fff; /* النص باللون الأبيض */
+    border: 2px solid #f58d1f; /* إطار برتقالي */
+    padding: 15px 30px; /* مسافة داخلية أكبر */
+    font-size: 1.2rem; /* حجم النص أكبر */
+    font-weight: bold; /* خط عريض */
+    border-radius: 10px; /* زوايا مستديرة أكثر */
+    transition: all 0.3s ease; /* تأثير الانتقال */
+    cursor: pointer; /* مؤشر اليد */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+}
+
+.product-btn:hover {
+    background-color: #084c61; /* لون أزرق أفتح عند التحويم */
+    color: #fff; /* الكتابة باللون الأبيض */
+    border-color: #084c61; /* تغيير لون الإطار */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التمرير */
+}
+
+/* إزالة الأنماط المتعلقة بشريط التنقل السفلي */
+.navbar-bottom {
+    display: none; /* إخفاء شريط التنقل السفلي */
+}
+
+/* إزالة الأنماط المتعلقة بشريط التنقل الجانبي */
+.navbar-left, .sidebar {
+    display: none; /* إخفاء شريط التنقل الجانبي */
+}
+
+/* التأكد من أن جميع العناصر لا تتجاوز عرض الشاشة */
+.container, .row, .col-12, .col {
+    max-width: 100%; /* منع تجاوز العرض */
+    overflow-x: hidden; /* منع التمرير الأفقي */
+}
+
+/* التأكد من أن جميع العناصر داخل الصفحة لا تتجاوز عرض الشاشة */
+* {
+    box-sizing: border-box; /* التأكد من أن الحواف والحشوات لا تؤثر على العرض */
+    max-width: 100%; /* منع تجاوز العرض */
+}
+
+section {
+    height: auto; /* إلغاء إجبار الأقسام على أخذ كامل ارتفاع الشاشة */
+    scroll-snap-align: none; /* إلغاء محاذاة الأقسام عند التمرير */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px; /* زيادة المسافة الداخلية */
+    text-align: center; /* توسيط النصوص */
+}
+
+/* تصميم قسم الخدمات */
+#services {
+    background: #084c61; /* خلفية زرقاء داكنة */
+    color: #fff; /* النص باللون الأبيض */
+}
+
+#services h2 {
+    font-size: 2.5rem; /* حجم النص */
+    margin-bottom: 20px; /* مسافة أسفل العنوان */
+    color: #f58d1f; /* لون برتقالي */
+}
+
+#services .service-card {
+    background: #06314a; /* خلفية زرقاء داكنة */
+    border-radius: 10px; /* زوايا مستديرة */
+    padding: 20px; /* مسافة داخلية */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
+}
+
+#services .service-card:hover {
+    transform: translateY(-10px); /* رفع البطاقة */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* زيادة الظل */
+}
+
+#services .service-card h3 {
+    font-size: 1.5rem; /* حجم النص */
+    color: #f58d1f; /* لون برتقالي */
+    margin-bottom: 10px; /* مسافة أسفل العنوان */
+}
+
+#services .service-card p {
+    font-size: 1rem; /* حجم النص */
+    color: #ddd; /* لون رمادي */
+    line-height: 1.6; /* ارتفاع السطر */
+}
+
+/* تحسين تصميم قسم لماذا نحن */
+#why-us {
+    padding: 80px 20px; /* مسافة داخلية */
+    text-align: center; /* توسيط النصوص */
+}
+
+#why-us h2 {
+    font-size: 2.5rem; /* حجم النص */
+    margin-bottom: 20px; /* مسافة أسفل العنوان */
+    color: #f58d1f; /* لون برتقالي */
+}
+
+#why-us p {
+    font-size: 1.2rem; /* حجم النص */
+    color: #ddd; /* لون رمادي */
+    line-height: 1.8; /* ارتفاع السطر */
+    margin-bottom: 40px; /* مسافة أسفل النص */
+}
+
+#why-us .service-card {
+    background: #06314a; /* خلفية زرقاء داكنة */
+    border-radius: 10px; /* زوايا مستديرة */
+    padding: 20px; /* مسافة داخلية */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
+}
+
+#why-us .service-card:hover {
+    transform: translateY(-10px); /* رفع البطاقة */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* زيادة الظل */
+}
+
+#why-us .service-card h3 {
+    font-size: 1.5rem; /* حجم النص */
+    color: #f58d1f; /* لون برتقالي */
+    margin-bottom: 10px; /* مسافة أسفل العنوان */
+}
+
+#why-us .service-card p {
+    font-size: 1rem; /* حجم النص */
+    color: #ddd; /* لون رمادي */
+    line-height: 1.6; /* ارتفاع السطر */
+}
+
+/* تحسين تصميم الأزرار */
+.btn-primary {
+    background: #f58d1f; /* لون برتقالي */
+    color: #fff; /* النص باللون الأبيض */
+    border: none; /* إزالة الحدود */
+    padding: 10px 20px; /* مسافة داخلية */
+    font-size: 1.2rem; /* حجم النص */
+    border-radius: 5px; /* زوايا مستديرة */
+    transition: background 0.3s ease, transform 0.3s ease; /* تأثير عند التحويم */
+}
+
+.btn-primary:hover {
+    background: #d9771f; /* لون برتقالي داكن */
+    transform: scale(1.1); /* تكبير الزر */
+}
+
+/* تصميم قسم المميزات */
+#features {
+    padding: 80px 20px; /* مسافة داخلية */
+    text-align: center; /* توسيط النصوص */
+}
+
+#features h2 {
+    font-size: 2.5rem; /* حجم النص */
+    margin-bottom: 20px; /* مسافة أسفل العنوان */
+    color: #f58d1f; /* لون برتقالي */
+}
+
+#features .service-card {
+    background: #06314a; /* خلفية زرقاء داكنة */
+    border-radius: 10px; /* زوايا مستديرة */
+    padding: 20px; /* مسافة داخلية */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التحويم */
+}
+
+#features .service-card:hover {
+    transform: translateY(-10px); /* رفع البطاقة */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* زيادة الظل */
+}
+
+#features .service-card h3 {
+    font-size: 1.5rem; /* حجم النص */
+    color: #f58d1f; /* لون برتقالي */
+    margin-bottom: 10px; /* مسافة أسفل العنوان */
+}
+
+#features .service-card p {
+    font-size: 1rem; /* حجم النص */
+    color: #ddd; /* لون رمادي */
+    line-height: 1.6; /* ارتفاع السطر */
+}
+
+/* تحسينات للهواتف المحمولة */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* تصغير حجم النص */
+    }
+
+    .navbar {
+        padding: 10px; /* تقليل الحشوة */
+    }
+
+    .navbar-brand img {
+        height: 40px; /* تصغير حجم الشعار */
+    }
+
+    .hero-section {
+        height: auto; /* السماح بارتفاع تلقائي */
+        padding: 20px; /* إضافة مسافة داخلية */
+        text-align: center; /* توسيط النصوص */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem; /* تقليل حجم النص */
+    }
+
+    .hero-section p {
+        font-size: 1rem; /* تقليل حجم النص */
+    }
+
+    .btn-primary {
+        font-size: 1rem; /* تصغير حجم النص في الأزرار */
+        padding: 10px 15px; /* تقليل الحشوة */
+    }
+
+    section {
+        padding: 40px 10px; /* تقليل المسافة الداخلية */
+    }
+
+    #services .service-card,
+    #features .service-card,
+    #why-us .service-card {
+        padding: 15px; /* تقليل الحشوة */
+        font-size: 0.9rem; /* تصغير النصوص */
+    }
+
+    #partners img {
+        width: 80px; /* تصغير حجم الصور */
+        height: 80px;
+    }
+
+    footer {
+        font-size: 0.8rem; /* تصغير النصوص في الفوتر */
+    }
+
+    footer a img {
+        width: 40px; /* تصغير حجم الأيقونات */
+        height: 40px;
+    }
+
+    iframe {
+        height: 200px; /* تصغير ارتفاع الخريطة */
+    }
+}
